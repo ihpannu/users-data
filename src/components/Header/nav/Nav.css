@@ -1,5 +1,5 @@
 nav {
-  background: #42b882;
+  background: #20aaf3;
 
   height: 50px;
 }
@@ -16,7 +16,7 @@ nav ul li {
   cursor: pointer;
   display: flex;
   align-items: center;
-  transform: scaleX(0.9);
+  transform: scaleX(0.95);
 }
 nav ul li a {
   text-decoration: none;
@@ -25,12 +25,12 @@ nav ul li a {
   font-weight: 500;
 }
 nav ul li:hover {
-  background: #2e835d;
-  box-shadow: 0 0 10px #a09a9a96;
-  transition: all 400ms ease-in-out;
-  transform: scaleX(1);
+  background: #19a7f3;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  transition: all 200ms ease-in-out;
+  transform: scaleX(1.1);
 }
 
 .selected {
-  background: #2e835d;
+  background: #1da7f1;
 }
