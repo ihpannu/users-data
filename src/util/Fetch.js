@@ -21,7 +21,7 @@ export class Fetch extends Component {
   }
 
   fetchData() {
-    const url = 'https://randomuser.me/api/?results=200&nat=usa,uk,nz';
+    const url = 'https://randomuser.me/api/?results=200&nat=us,nz,au';
     fetch(url)
       .then(response => {
         return response.json();

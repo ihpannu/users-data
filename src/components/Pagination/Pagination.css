@@ -2,11 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 .pag-header h6,
 .pag-header li,
 .pag-header h2 {
-  padding: 10px;
+  padding: 0 10px;
   font-size: 1em;
 }
 .pag-header li span {
@@ -15,6 +17,8 @@
 
 .pag-box {
   display: flex;
+  padding: 0 20px;
+  margin-top: 3em;
 }
 .pag-header a {
   cursor: pointer;
@@ -24,7 +28,7 @@ select {
   padding: 4px;
   margin: 0;
   background: #fff;
-  color: #888;
+  color: #24b2f4;
   border: none;
   outline: none;
   display: inline-block;
@@ -44,7 +48,7 @@ label:after {
   content: '\f078';
   font-family: 'FontAwesome';
   font-size: 11px;
-  color: #aaa;
+  color: #24b2f4;
   right: 8px;
   top: 5px;
   padding: 0 0 2px;
@@ -66,4 +70,15 @@ select:active,
 label:active,
 option:active {
   border: none;
+}
+.pag-box a {
+  color: #24b2f4;
+}
+.pag-header hr {
+  width: 2px;
+  height: 15px;
+  margin: auto;
+  border: none;
+  background-color: #24b2f4;
+  transform: translateX(180);
 }

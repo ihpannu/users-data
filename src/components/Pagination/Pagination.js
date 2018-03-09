@@ -13,7 +13,8 @@ export default class Pagination extends Component {
           <ul class="pag-box">
             <h2>List of Users</h2>
             <li>
-              <i class="fas fa-ellipsis-v" />
+              {/* <i class="fas fa-ellipsis-v" /> */}
+              <hr />
             </li>
             <li>
               Sort By:{' '}
@@ -41,8 +42,17 @@ export default class Pagination extends Component {
                 </select>
               </label>
             </li>
-            <li />
-            <li />
+            <li>of</li>
+            <li>
+              <a>
+                <i class="fas fa-angle-left" />
+              </a>
+            </li>
+            <li>
+              <a>
+                <i class="fas fa-angle-right" />
+              </a>
+            </li>
           </ul>
         </div>
       </div>
