@@ -13,11 +13,15 @@ export class Fetch extends Component {
   }
 
   componentDidMount() {
-    this.fetchData();
+    // this.fetchData();
+
+    setTimeout(() => {
+      this.fetchData();
+    }, 3000);
   }
 
   fetchData() {
-    const url = 'https://randomuser.me/api/?results=200&nat=usa,uk,nz';
+    const url = 'https://randomuser.me/api/?results=2&nat=usa,uk,nz';
     fetch(url)
       .then(response => {
         return response.json();
@@ -36,7 +40,6 @@ export class Fetch extends Component {
 
     return (
       <div>
-        <Loader />
         {this.state.isLoading ? (
           <Loader />
         ) : (
