@@ -44,63 +44,89 @@ export class Fetch extends Component {
 
     return (
       <div className="table">
-        <div>
-          <h1>First Name</h1>
-          {users.map(user => (
-            <ul key={user.login.username}>
-              <li>{user.name.first}</li>
-            </ul>
-          ))}
+        <div className="table-header">
+          <div className="header__item">
+            <a>First Name</a>
+          </div>
+          <div className="header__item">
+            <a>Last Name</a>
+          </div>
+          <div className="header__item">
+            <a>Country</a>
+          </div>
+          <div className="header__item">
+            <a>Address</a>
+          </div>
+          <div className="header__item">
+            <a>City</a>
+          </div>
+          <div className="header__item">
+            <a>State</a>
+          </div>
+          <div className="header__item">
+            <a>Zip</a>
+          </div>
+          <div className="header__item">
+            <a>Phone</a>
+          </div>
         </div>
-        <div>
-          <h1>Last Name</h1>
-          {users.map(user => (
-            <ul key={user.login.username}>
-              <li>{user.name.last}</li>
-            </ul>
-          ))}
-        </div>
-        <div>
-          {users.map(user => (
-            <ul key={user.login.username}>
-              <li>{user.nat}</li>
-            </ul>
-          ))}
-        </div>
-        <div>
-          {users.map(user => (
-            <ul key={user.login.username}>
-              <li>{user.location.street}</li>
-            </ul>
-          ))}
-        </div>
-        <div>
-          {users.map(user => (
-            <ul key={user.login.username}>
-              <li>{user.location.city}</li>
-            </ul>
-          ))}
-        </div>
-        <div>
-          {users.map(user => (
-            <ul key={user.login.username}>
-              <li>{user.location.state}</li>
-            </ul>
-          ))}
-        </div>
-        <div>
-          {users.map(user => (
-            <ul key={user.login.username}>
-              <li>{user.location.postcode}</li>
-            </ul>
-          ))}
-        </div>
-        <div>
-          {users.map(user => (
-            <ul key={user.login.username}>
-              <li>{user.cell}</li>
-            </ul>
-          ))}
+        <div className="table-content">
+          <div className="table-row">
+            {users.map(user => (
+              <ul className="table-data" key={user.login.username}>
+                <li>{user.name.first}</li>
+              </ul>
+            ))}
+          </div>
+          <div className="table-row">
+            {users.map(user => (
+              <ul key={user.login.username}>
+                <li>{user.name.last}</li>
+              </ul>
+            ))}
+          </div>
+          <div className="table-row">
+            {users.map(user => (
+              <ul key={user.login.username}>
+                <li>{user.nat}</li>
+              </ul>
+            ))}
+          </div>
+          <div className="table-row">
+            {users.map(user => (
+              <ul key={user.login.username}>
+                <li>{user.location.street}</li>
+              </ul>
+            ))}
+          </div>
+          <div className="table-row">
+            {users.map(user => (
+              <ul key={user.login.username}>
+                <li>{user.location.city}</li>
+              </ul>
+            ))}
+          </div>
+          <div className="table-row">
+            {users.map(user => (
+              <ul key={user.login.username}>
+                <li>{user.location.state}</li>
+              </ul>
+            ))}
+          </div>
+          <div className="table-row">
+            {users.map(user => (
+              <ul key={user.login.username}>
+                <li>{user.location.postcode}</li>
+              </ul>
+            ))}
+          </div>
+          <div className="table-row">
+            {users.map(user => (
+              <ul key={user.login.username}>
+                <li>{user.cell}</li>
+              </ul>
+            ))}
+          </div>
         </div>
       </div>
     );
