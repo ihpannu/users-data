@@ -4,9 +4,12 @@ import './Pagination.css';
 export default class Pagination extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { users: [] };
   }
+
   render() {
+    const persons = this.props.users;
+    console.log(persons);
     return (
       <div className="pag-header">
         <div>
