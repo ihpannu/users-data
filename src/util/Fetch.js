@@ -80,49 +80,49 @@ export class Fetch extends Component {
           </div>
           <div className="table-row">
             {users.map(user => (
-              <ul key={user.login.username}>
+              <ul className="table-data" key={user.login.username}>
                 <li>{user.name.last}</li>
               </ul>
             ))}
           </div>
           <div className="table-row">
             {users.map(user => (
-              <ul key={user.login.username}>
+              <ul className="table-data" key={user.login.username}>
                 <li>{user.nat}</li>
               </ul>
             ))}
           </div>
           <div className="table-row">
             {users.map(user => (
-              <ul key={user.login.username}>
+              <ul className="table-data" key={user.login.username}>
                 <li>{user.location.street}</li>
               </ul>
             ))}
           </div>
           <div className="table-row">
             {users.map(user => (
-              <ul key={user.login.username}>
+              <ul className="table-data" key={user.login.username}>
                 <li>{user.location.city}</li>
               </ul>
             ))}
           </div>
           <div className="table-row">
             {users.map(user => (
-              <ul key={user.login.username}>
+              <ul className="table-data" key={user.login.username}>
                 <li>{user.location.state}</li>
               </ul>
             ))}
           </div>
           <div className="table-row">
             {users.map(user => (
-              <ul key={user.login.username}>
+              <ul className="table-data" key={user.login.username}>
                 <li>{user.location.postcode}</li>
               </ul>
             ))}
           </div>
           <div className="table-row">
             {users.map(user => (
-              <ul key={user.login.username}>
+              <ul className="table-data" key={user.login.username}>
                 <li>{user.cell}</li>
               </ul>
             ))}

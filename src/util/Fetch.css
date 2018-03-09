@@ -8,14 +8,14 @@
 /* .table > div {
   margin: 0 10px;
 } */
-.table ul {
+/* .table ul {
   background: #666666;
   padding: 10px;
 }
 .table ul li {
   background: #929292;
-  /* padding: 10px; */
-}
+  padding: 10px;
+} */
 
 .table-header {
   display: flex;
@@ -31,17 +31,20 @@
 .table-row:nth-of-type(odd) {
   background: rgb(166, 243, 166);
 }
-.table-row ul {
+.table-row {
   display: flex;
   flex-direction: column;
+}
+.table-row li {
+  background: thistle;
 }
 
 .table-data,
 .header__item {
   flex: 1 1 20%;
   text-align: center;
+  padding: 10px;
 }
-.table-data {
+.table-content {
   display: flex;
-  flex-direction: column;
 }
