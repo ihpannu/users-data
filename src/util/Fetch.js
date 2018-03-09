@@ -21,7 +21,7 @@ export class Fetch extends Component {
   }
 
   fetchData() {
-    const url = 'https://randomuser.me/api/?results=200&nat=us,nz,au';
+    const url = 'https://randomuser.me/api/?results=2&nat=us,nz,au';
     fetch(url)
       .then(response => {
         return response.json();
@@ -55,64 +55,32 @@ export class Fetch extends Component {
                 <div className="col col-7">Zip</div>
                 <div className="col col-8">Phone</div>
               </li>
-              <ul class="responsive-table">
+              <ul className="responsive-table">
                 {users.map(user => (
-                  <li class="table-row">
-                    <div
-                      className="col col-1"
-                      data-label="First Name"
-                      key={user.login.username}
-                    >
+                  <li key={user.id.value} className="table-row">
+                    <div className="col col-1" data-label="First Name">
                       {user.name.first}
                     </div>
-                    <div
-                      className="col col-2"
-                      data-label="Last Name"
-                      key={user.login.username}
-                    >
+                    <div className="col col-2" data-label="Last Name">
                       {user.name.last}
                     </div>
-                    <div
-                      className="col col-3"
-                      data-label="Country"
-                      key={user.login.username}
-                    >
+                    <div className="col col-3" data-label="Country">
                       {user.nat}
                     </div>
-                    <div
-                      className="col col-4"
-                      data-label="Address"
-                      key={user.login.username}
-                    >
+                    <div className="col col-4" data-label="Address">
                       {user.location.street}
                     </div>
-                    <div
-                      className="col col-5"
-                      data-label="Address"
-                      key={user.login.username}
-                    >
+                    <div className="col col-5" data-label="Address">
                       {user.location.city}
                     </div>
-                    <div
-                      className="col col-6"
-                      data-label="State"
-                      key={user.login.username}
-                    >
+                    <div className="col col-6" data-label="State">
                       {user.location.state}
                     </div>
-                    <div
-                      className="col col-7"
-                      data-label="Zip"
-                      key={user.login.username}
-                    >
+                    <div className="col col-7" data-label="Zip">
                       {user.location.postcode}
                     </div>
 
-                    <div
-                      className="col col-8"
-                      data-label="Phone"
-                      key={user.login.username}
-                    >
+                    <div className="col col-8" data-label="Phone">
                       {user.cell}
                     </div>
                   </li>

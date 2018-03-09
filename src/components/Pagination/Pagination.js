@@ -10,10 +10,9 @@ export default class Pagination extends Component {
     return (
       <div className="pag-header">
         <div>
-          <ul class="pag-box">
+          <ul className="pag-box">
             <h2>List of Users</h2>
             <li>
-              {/* <i class="fas fa-ellipsis-v" /> */}
               <hr />
             </li>
             <li>
@@ -21,14 +20,14 @@ export default class Pagination extends Component {
               <a>
                 Last Name
                 <span>
-                  <i class="fas fa-sort-down" />
+                  <i className="fas fa-sort-down" />
                 </span>
               </a>
             </li>
           </ul>
         </div>
         <div>
-          <ul class="pag-box">
+          <ul className="pag-box">
             <li>
               items per page
               <label>
@@ -45,12 +44,12 @@ export default class Pagination extends Component {
             <li>of</li>
             <li>
               <a>
-                <i class="fas fa-angle-left" />
+                <i className="fas fa-angle-left" />
               </a>
             </li>
             <li>
               <a>
-                <i class="fas fa-angle-right" />
+                <i className="fas fa-angle-right" />
               </a>
             </li>
           </ul>
