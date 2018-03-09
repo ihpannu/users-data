@@ -1,7 +1,9 @@
 .table {
   background: #333;
   color: whitesmoke;
-  width: 100vw;
+  width: 80%;
+  text-transform: capitalize;
+  margin: 0 auto;
 }
 
 .table-header {
