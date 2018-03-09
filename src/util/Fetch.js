@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { UsersList } from '../components/Users/UsersList/UsersList';
+import '../util/Fetch.css';
 export class Fetch extends Component {
   constructor(props) {
     super(props);
@@ -43,19 +43,65 @@ export class Fetch extends Component {
     const { users } = this.state;
 
     return (
-      <div>
-        {users.map(user => (
-          <ul key={user.login.username}>
-            <li>{user.name.first}</li>
-            <li>{user.name.last}</li>
-            <li>{user.name.nat}</li>
-            <li>{user.location.street}</li>
-            <li>{user.location.city}</li>
-            <li>{user.location.state}</li>
-            <li>{user.location.postcode}</li>
-            <li>{user.cell}</li>
-          </ul>
-        ))}
+      <div className="table">
+        <div>
+          <h1>First Name</h1>
+          {users.map(user => (
+            <ul key={user.login.username}>
+              <li>{user.name.first}</li>
+            </ul>
+          ))}
+        </div>
+        <div>
+          <h1>Last Name</h1>
+          {users.map(user => (
+            <ul key={user.login.username}>
+              <li>{user.name.last}</li>
+            </ul>
+          ))}
+        </div>
+        <div>
+          {users.map(user => (
+            <ul key={user.login.username}>
+              <li>{user.nat}</li>
+            </ul>
+          ))}
+        </div>
+        <div>
+          {users.map(user => (
+            <ul key={user.login.username}>
+              <li>{user.location.street}</li>
+            </ul>
+          ))}
+        </div>
+        <div>
+          {users.map(user => (
+            <ul key={user.login.username}>
+              <li>{user.location.city}</li>
+            </ul>
+          ))}
+        </div>
+        <div>
+          {users.map(user => (
+            <ul key={user.login.username}>
+              <li>{user.location.state}</li>
+            </ul>
+          ))}
+        </div>
+        <div>
+          {users.map(user => (
+            <ul key={user.login.username}>
+              <li>{user.location.postcode}</li>
+            </ul>
+          ))}
+        </div>
+        <div>
+          {users.map(user => (
+            <ul key={user.login.username}>
+              <li>{user.cell}</li>
+            </ul>
+          ))}
+        </div>
       </div>
     );
   }

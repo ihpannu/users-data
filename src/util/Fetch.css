@@ -1,0 +1,24 @@
+.table {
+  background: #333;
+  color: whitesmoke;
+  display: flex;
+}
+
+.table > div {
+  margin: 0 10px;
+}
+.table ul {
+  background: #666666;
+
+  padding: 10px;
+}
+.table ul li {
+  background: #929292;
+  padding: 10px;
+}
+
+h1 {
+  background: #222;
+  color: #fff;
+  padding: 10px;
+}

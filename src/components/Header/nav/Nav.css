@@ -1,6 +1,36 @@
 nav {
   background: #42b882;
+
+  height: 50px;
 }
 nav ul {
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+nav ul li {
+  padding: 0 10px;
+  margin: 0 10px;
+  list-style-type: none;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transform: scaleX(0.9);
+}
+nav ul li a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: whitesmoke;
+  font-weight: 500;
+}
+nav ul li:hover {
+  background: #2e835d;
+  box-shadow: 0 0 10px #a09a9a96;
+  transition: all 400ms ease-in-out;
+  transform: scaleX(1);
+}
+
+.selected {
+  background: #2e835d;
 }

@@ -1,28 +1,9 @@
-.App {
-  text-align: center;
-}
+@import 'Reset.css';
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700');
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+body {
+  /* background: linear-gradient(to right, #00e39f, #00c4e1); */
+  color: #313033;
+  font-family: 'Quicksand', sans-serif;
 }
