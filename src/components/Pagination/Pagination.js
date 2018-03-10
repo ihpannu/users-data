@@ -2,14 +2,33 @@ import React, { Component } from 'react';
 import './Pagination.css';
 
 export default class Pagination extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { users: [] };
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      currentPage: null,
+      pageCount: null
+    };
+  }
+  componentWillMount() {
+    const startingPage = this.props.startingPage ? this.props.startingPage : 1;
+
+    const data = this.props.data;
+    const pageSize = this.props.pageSize;
+    let pageCount = parseInt(data.length / pageSize);
+    if (data.length % pageSize > 0) {
+      pageCount++;
+    }
+    this.setState({
+      currentPage: startingPage,
+      pageCount: pageCount
+    });
+  }
+
+  setCurrentPage(num) {
+    this.setState({ currentPage: num });
   }
 
   render() {
-    const persons = this.props.users;
-    console.log(persons);
     return (
       <div className="pag-header">
         <div>
