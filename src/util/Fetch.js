@@ -10,19 +10,21 @@ export class Fetch extends Component {
       users: [],
       isLoading: true
     };
-    this.sortList = this.sortList.bind(this);
+    this.sortList.bind(this);
+    this.compareBy.bind(this);
   }
 
   componentDidMount() {
-    // this.fetchData();
+    this.fetchData();
 
-    setTimeout(() => {
-      this.fetchData();
-    }, 3000);
+    // setTimeout(() => {
+    //   this.fetchData();
+    // }, 100);
   }
 
   fetchData() {
-    const url = 'https://randomuser.me/api/?results=2&nat=us,nz,au';
+    const url =
+      'https://randomuser.me/api/?results=20&nat=us,nz,au&seed=foobar';
     fetch(url)
       .then(response => {
         return response.json();
@@ -35,9 +37,27 @@ export class Fetch extends Component {
       })
       .catch(error => console.log('parsing failed', error));
   }
-  sortList() {
-    console.log('ok');
-    this.users.sort();
+  compareBy(key) {
+    return function(a, b) {
+      if (a[key] < b[key]) return -1;
+      if (a[key] > b[key]) return 1;
+      return 0;
+    };
+  }
+
+  sortList(key) {
+    let arrayCopy = [...this.state.users];
+    console.log(
+      arrayCopy.map(user => {
+        return user.name.first;
+      })
+    );
+    arrayCopy
+      .map(user => {
+        return user.name.last;
+      })
+      .sort(this.compareBy(key));
+    this.setState({ users: arrayCopy });
   }
   render() {
     const { users } = this.state;
@@ -48,15 +68,53 @@ export class Fetch extends Component {
           <Loader />
         ) : (
           <div className="table-container">
-            <li>
-              Sort By:{' '}
-              <a onClick={this.sortList}>
-                Last Name
-                <span>
-                  <i className="fas fa-sort-down" />
-                </span>
-              </a>
-            </li>
+            <div className="pag-header">
+              <div>
+                <ul className="pag-box">
+                  <h2>List of Users</h2>
+                  <li>
+                    <hr />
+                  </li>
+                  <li>
+                    Sort By:{' '}
+                    <a onClick={() => this.sortList('last')}>
+                      Last Name
+                      <span>
+                        <i className="fas fa-sort-down" />
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <ul className="pag-box">
+                  <li>
+                    items per page
+                    <label>
+                      <select>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="75">75</option>
+                        <option value="100">100</option>
+                      </select>
+                    </label>
+                  </li>
+                  <li>of</li>
+                  <li>
+                    <a>
+                      <i className="fas fa-angle-left" />
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      <i className="fas fa-angle-right" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
             <div className="responsive-table">
               <li id="table-head" className="table-header">
                 <div className="col col-1">First name</div>
