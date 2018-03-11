@@ -2,29 +2,42 @@ import React, { Component } from 'react';
 import './Pagination.css';
 
 export default class Pagination extends Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.state = {
-      currentPage: null,
-      pageCount: null
+      currentPage: 1,
+      pageCount: null,
+      users: []
     };
+    this.handlePageChange.bind(this);
     // this.sortList = this.sortList.bind(this);
   }
-  compareBy = key => {
-    // no need to bind arrow functions
-    return function(a, b) {
-      if (a[key] < b[key]) return -1;
-      if (a[key] > b[key]) return 1;
-      return 0;
-    };
-  };
 
-  sortList = key => {
-    let arrayCopy = [...this.state.users];
-    arrayCopy.sort(this.compareBy(key));
-    this.setState({ users: arrayCopy });
-  };
+  handlePageChange(page, e) {
+    this.setState({ currentPage: page });
+  }
+  //   compareBy = key => {
+  //     // no need to bind arrow functions
+  //     return function(a, b) {
+  //       if (a[key] < b[key]) return -1;
+  //       if (a[key] > b[key]) return 1;
+  //       return 0;
+  //     };
+  //   };
+
+  //   sortList = key => {
+  //     let arrayCopy = [...this.state.users];
+  //     arrayCopy.sort(this.compareBy(key));
+  //     this.setState({ users: arrayCopy });
+  //   };
   render() {
+    const per_page = '10';
+    const paginationData = this.props.users;
+    let numPages = Math.ceil(paginationData.length / per_page);
+
+    if (paginationData.length % per_page > 0) {
+      numPages++;
+    }
     return (
       <div className="pag-header">
         <div>
@@ -66,7 +79,7 @@ export default class Pagination extends Component {
               </a>
             </li>
             <li>
-              <a>
+              <a onChange={this.handlePageChange}>
                 <i className="fas fa-angle-right" />
               </a>
             </li>
