@@ -7,7 +7,6 @@ export class Fetch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: [],
       isLoading: true,
       arrayCopy: []
     };
@@ -30,16 +29,21 @@ export class Fetch extends Component {
         return response.json();
       })
       .then(parsedJSON => {
+        const users = parsedJSON.results;
         this.setState({
-          users: parsedJSON.results,
           isLoading: false
         });
+        if (this.props.onSuccess) {
+          // since we have the list of users, let's call our callback to pass them up to the App component, which
+          // will handle sorting them and returning them down to us so that we can make a list out of them.
+          this.props.onSuccess(users)
+        }
       })
       .catch(error => console.log('parsing failed', error));
   }
 
   render() {
-    const { users } = this.state;
+    const { users } = this.props;
 
     return (
       <div>
@@ -60,7 +64,7 @@ export class Fetch extends Component {
               </li>
               <ul className="responsive-table">
                 {users.map(user => (
-                  <li key={user.id.value} className="table-row">
+                  <li key={user.id.value + user.email} className="table-row">
                     <div className="col col-1" data-label="First Name">
                       {user.name.first}
                     </div>

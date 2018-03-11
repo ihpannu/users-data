@@ -7,7 +7,6 @@ export default class Pagination extends Component {
     this.state = {
       currentPage: 1,
       pageCount: null,
-      users: []
     };
     this.handlePageChange.bind(this);
     // this.sortList = this.sortList.bind(this);
@@ -16,27 +15,17 @@ export default class Pagination extends Component {
   handlePageChange(page, e) {
     this.setState({ currentPage: page });
   }
-  //   compareBy = key => {
-  //     // no need to bind arrow functions
-  //     return function(a, b) {
-  //       if (a[key] < b[key]) return -1;
-  //       if (a[key] > b[key]) return 1;
-  //       return 0;
-  //     };
-  //   };
 
-  //   sortList = key => {
-  //     let arrayCopy = [...this.state.users];
-  //     arrayCopy.sort(this.compareBy(key));
-  //     this.setState({ users: arrayCopy });
-  //   };
   render() {
+    let numPages;
     const per_page = '10';
     const paginationData = this.props.users;
-    let numPages = Math.ceil(paginationData.length / per_page);
+    if (paginationData) {
+        numPages = Math.ceil(paginationData.length / per_page);
 
-    if (paginationData.length % per_page > 0) {
-      numPages++;
+        if (paginationData.length % per_page > 0) {
+            numPages++;
+        }
     }
     return (
       <div className="pag-header">
@@ -48,7 +37,7 @@ export default class Pagination extends Component {
             </li>
             <li>
               Sort By:{' '}
-              <a onClick={this.sortList}>
+              <a onClick={() => this.props.onSort('name.last')}>
                 Last Name
                 <span>
                   <i className="fas fa-sort-down" />
