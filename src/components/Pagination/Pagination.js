@@ -8,26 +8,29 @@ export default class Pagination extends Component {
       currentPage: null,
       pageCount: null
     };
+    this.sortList = this.sortList.bind(this);
   }
-  componentWillMount() {
-    const startingPage = this.props.startingPage ? this.props.startingPage : 1;
+  //   componentWillMount() {
+  //     const startingPage = this.props.startingPage ? this.props.startingPage : 1;
 
-    const data = this.props.data;
-    const pageSize = this.props.pageSize;
-    let pageCount = parseInt(data.length / pageSize);
-    if (data.length % pageSize > 0) {
-      pageCount++;
-    }
-    this.setState({
-      currentPage: startingPage,
-      pageCount: pageCount
-    });
+  //     const data = this.props.data;
+  //     const pageSize = this.props.pageSize;
+  //     let pageCount = parseInt(data.length / pageSize);
+  //     if (data.length % pageSize > 0) {
+  //       pageCount++;
+  //     }
+  //     this.setState({
+  //       currentPage: startingPage,
+  //       pageCount: pageCount
+  //     });
+  //   }
+
+  //   setCurrentPage(num) {
+  //     this.setState({ currentPage: num });
+  //   }
+  sortList() {
+    console.log('its works');
   }
-
-  setCurrentPage(num) {
-    this.setState({ currentPage: num });
-  }
-
   render() {
     return (
       <div className="pag-header">
@@ -39,7 +42,7 @@ export default class Pagination extends Component {
             </li>
             <li>
               Sort By:{' '}
-              <a>
+              <a onClick={this.sortList()}>
                 Last Name
                 <span>
                   <i className="fas fa-sort-down" />
