@@ -10,6 +10,7 @@ export class Fetch extends Component {
       users: [],
       isLoading: true
     };
+    this.sortList = this.sortList.bind(this);
   }
 
   componentDidMount() {
@@ -34,7 +35,10 @@ export class Fetch extends Component {
       })
       .catch(error => console.log('parsing failed', error));
   }
-
+  sortList() {
+    console.log('ok');
+    this.users.sort();
+  }
   render() {
     const { users } = this.state;
 
@@ -44,6 +48,15 @@ export class Fetch extends Component {
           <Loader />
         ) : (
           <div className="table-container">
+            <li>
+              Sort By:{' '}
+              <a onClick={this.sortList}>
+                Last Name
+                <span>
+                  <i className="fas fa-sort-down" />
+                </span>
+              </a>
+            </li>
             <div className="responsive-table">
               <li id="table-head" className="table-header">
                 <div className="col col-1">First name</div>
