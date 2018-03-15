@@ -36,7 +36,7 @@ export class Fetch extends Component {
         if (this.props.onSuccess) {
           // since we have the list of users, let's call our callback to pass them up to the App component, which
           // will handle sorting them and returning them down to us so that we can make a list out of them.
-          this.props.onSuccess(users)
+          this.props.onSuccess(users);
         }
       })
       .catch(error => console.log('parsing failed', error));

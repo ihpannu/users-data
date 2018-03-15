@@ -4,29 +4,10 @@ import './Pagination.css';
 export default class Pagination extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      currentPage: 1,
-      pageCount: null
-    };
-    this.handlePageChange.bind(this);
-    // this.sortList = this.sortList.bind(this);
-  }
-
-  handlePageChange(page, e) {
-    this.setState({ currentPage: page });
+    this.state = {};
   }
 
   render() {
-    let numPages;
-    const per_page = '10';
-    const paginationData = this.props.users;
-    if (paginationData) {
-      numPages = Math.ceil(paginationData.length / per_page);
-
-      if (paginationData.length % per_page > 0) {
-        numPages++;
-      }
-    }
     return (
       <div className="pag-header">
         <div>
@@ -44,6 +25,15 @@ export default class Pagination extends Component {
                 </span>
               </a>
             </li>
+            <hr />
+            <li>
+              <a onClick={() => this.props.onSort('name.first')}>
+                First Name
+                <span>
+                  <i className="fas fa-sort-down" />
+                </span>
+              </a>
+            </li>
           </ul>
         </div>
         <div>
@@ -51,7 +41,10 @@ export default class Pagination extends Component {
             <li>
               items per page
               <label>
-                <select defaultValue="10">
+                <select
+                  defaultValue={this.props.selectedValue}
+                  onChange={() => this.props.handlePageChange()}
+                >
                   <option value="5">5</option>
                   <option value="10">10</option>
                   <option value="25">25</option>
@@ -68,7 +61,7 @@ export default class Pagination extends Component {
               </a>
             </li>
             <li>
-              <a onChange={this.handlePageChange}>
+              <a>
                 <i className="fas fa-angle-right" />
               </a>
             </li>
