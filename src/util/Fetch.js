@@ -39,7 +39,7 @@ export class Fetch extends Component {
           this.props.onSuccess(users);
         }
       })
-      .catch(error => console.log('parsing failed', error));
+      .catch(error => console.log('Parsing failed', error));
   }
 
   render() {
