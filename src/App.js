@@ -55,6 +55,7 @@ class App extends Component {
     this.setState({ value: e.target.value });
     console.log(e.target.value);
   };
+
   handlePageChangeNext = e => {
     this.setState({ currentPage: this.state.currentPage + 1 });
     console.log(`Clicked ${this.state.currentPage}`);
