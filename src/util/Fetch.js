@@ -22,7 +22,7 @@ export class Fetch extends Component {
 
     // setTimeout(() => {
     //   this.fetchData();
-    // }, 100);
+    // }, 2000);
   }
   // this.setState({resultsNumbers: 10);
   fetchData() {

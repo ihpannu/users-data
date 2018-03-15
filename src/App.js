@@ -10,7 +10,8 @@ class App extends Component {
     super(props);
     this.state = {
       users: [],
-      value: 10
+      value: 10,
+      currentPage: 1
     };
   }
 
@@ -50,8 +51,17 @@ class App extends Component {
     this.setState({ users });
   };
   handleValueChange = e => {
+    // this changes the state of value when user selects different value option in select menu
     this.setState({ value: e.target.value });
     console.log(e.target.value);
+  };
+  handlePageChangeNext = e => {
+    this.setState({ currentPage: this.state.currentPage + 1 });
+    console.log(`Clicked ${this.state.currentPage}`);
+  };
+  handlePageChangePrev = e => {
+    this.setState({ currentPage: this.state.currentPage - 1 });
+    console.log(`Clicked ${this.state.currentPage}`);
   };
 
   render() {
@@ -65,6 +75,8 @@ class App extends Component {
           users={users}
           handleValueChange={this.handleValueChange}
           value={value}
+          handlePageChangeNext={this.handlePageChangeNext}
+          handlePageChangePrev={this.handlePageChangePrev}
         />
         <Fetch
           onSuccess={this.setUsers}
