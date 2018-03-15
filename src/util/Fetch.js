@@ -7,13 +7,16 @@ export class Fetch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: true,
-      arrayCopy: []
+      isLoading: true
+      // resultsNumbers: this.props.value
     };
-    // this.sortList.bind(this);
-    // this.compareBy.bind(this);
   }
 
+  // componentWillReceiveProps() {
+  //   this.setState(() => {
+  //     resultsNumbers: this.props.handleValueChange;
+  //   });
+  // }
   componentDidMount() {
     this.fetchData();
 
@@ -21,9 +24,10 @@ export class Fetch extends Component {
     //   this.fetchData();
     // }, 100);
   }
-
+  // this.setState({resultsNumbers: 10);
   fetchData() {
-    const url = 'https://randomuser.me/api/?results=20&nat=us,nz,au';
+    // const resultsNum = this.state.resultsNumbers;
+    const url = `https://randomuser.me/api/?results=100&nat=us,nz,au&seed=en`;
     fetch(url)
       .then(response => {
         return response.json();
@@ -63,7 +67,7 @@ export class Fetch extends Component {
                 <div className="col col-8">Phone</div>
               </li>
               <ul className="responsive-table">
-                {users.map(user => (
+                {users.slice(0, this.props.value).map(user => (
                   <li key={user.id.value + user.email} className="table-row">
                     <div className="col col-1" data-label="First Name">
                       {user.name.first}

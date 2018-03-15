@@ -42,8 +42,9 @@ export default class Pagination extends Component {
               items per page
               <label>
                 <select
-                  defaultValue={this.props.selectedValue}
-                  onChange={() => this.props.handlePageChange()}
+                  value={this.props.value}
+                  // defaultValue="10"
+                  onChange={this.props.handleValueChange}
                 >
                   <option value="5">5</option>
                   <option value="10">10</option>
@@ -54,7 +55,9 @@ export default class Pagination extends Component {
                 </select>
               </label>
             </li>
+
             <li>of</li>
+            <li>{this.props.value}</li>
             <li>
               <a>
                 <i className="fas fa-angle-left" />

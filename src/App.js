@@ -9,7 +9,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: []
+      users: [],
+      value: 10
     };
   }
 
@@ -48,14 +49,29 @@ class App extends Component {
     console.log('App received users from fetch!', users);
     this.setState({ users });
   };
+  handleValueChange = e => {
+    this.setState({ value: e.target.value });
+    console.log(e.target.value);
+  };
 
   render() {
     const { users } = this.state;
+    const { value } = this.state;
     return (
       <div>
         <Nav />
-        <Pagination onSort={this.sortList} users={users} />
-        <Fetch onSuccess={this.setUsers} users={users} />
+        <Pagination
+          onSort={this.sortList}
+          users={users}
+          handleValueChange={this.handleValueChange}
+          value={value}
+        />
+        <Fetch
+          onSuccess={this.setUsers}
+          users={users}
+          value={value}
+          handleValueChange={this.handleValueChange}
+        />
       </div>
     );
   }
