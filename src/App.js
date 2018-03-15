@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Fetch} from './util/Fetch';
+import React, { Component } from 'react';
+import { Fetch } from './util/Fetch';
 import Nav from './components/Header/nav/Nav';
 import Pagination from './components/Pagination/Pagination';
 
@@ -10,11 +10,12 @@ class App extends Component {
     super(props);
     this.state = {
       users: []
-    }
+    };
   }
 
-  compareBy = (sortPropertyPath) => {
-    return (a, b) => { // arrow function so that we can use `this` to access `getNestedPropertyValue`
+  compareBy = sortPropertyPath => {
+    return (a, b) => {
+      // arrow function so that we can use `this` to access `getNestedPropertyValue`
 
       const aValue = this.getNestedPropertyValue(a, sortPropertyPath);
       const bValue = this.getNestedPropertyValue(b, sortPropertyPath);
@@ -32,27 +33,30 @@ class App extends Component {
     return propertyKeys.reduce((value, key) => value[key], sourceObject);
   }
 
-  sortList = (sortPropertyPath) => {
-    console.log('App received sorting rules from Pagination!', sortPropertyPath);
+  sortList = sortPropertyPath => {
+    console.log(
+      'App received sorting rules from Pagination!',
+      sortPropertyPath
+    );
 
     let arrayCopy = [...this.state.users];
     arrayCopy.sort(this.compareBy(sortPropertyPath));
     this.setState({ users: arrayCopy });
   };
 
-  setUsers = (users) => {
+  setUsers = users => {
     console.log('App received users from fetch!', users);
-    this.setState({users});
+    this.setState({ users });
   };
 
   render() {
-    const {users} = this.state;
+    const { users } = this.state;
     return (
-        <div>
-          <Nav/>
-          <Pagination onSort={this.sortList} users={users}/>
-          <Fetch onSuccess={this.setUsers} users={users}/>
-        </div>
+      <div>
+        <Nav />
+        <Pagination onSort={this.sortList} users={users} />
+        <Fetch onSuccess={this.setUsers} users={users} />
+      </div>
     );
   }
 }

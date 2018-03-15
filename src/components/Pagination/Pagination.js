@@ -6,7 +6,7 @@ export default class Pagination extends Component {
     super(props);
     this.state = {
       currentPage: 1,
-      pageCount: null,
+      pageCount: null
     };
     this.handlePageChange.bind(this);
     // this.sortList = this.sortList.bind(this);
@@ -21,11 +21,11 @@ export default class Pagination extends Component {
     const per_page = '10';
     const paginationData = this.props.users;
     if (paginationData) {
-        numPages = Math.ceil(paginationData.length / per_page);
+      numPages = Math.ceil(paginationData.length / per_page);
 
-        if (paginationData.length % per_page > 0) {
-            numPages++;
-        }
+      if (paginationData.length % per_page > 0) {
+        numPages++;
+      }
     }
     return (
       <div className="pag-header">
@@ -51,7 +51,7 @@ export default class Pagination extends Component {
             <li>
               items per page
               <label>
-                <select>
+                <select defaultValue="10">
                   <option value="5">5</option>
                   <option value="10">10</option>
                   <option value="25">25</option>
