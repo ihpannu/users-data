@@ -57,17 +57,28 @@ class App extends Component {
   };
 
   handlePageChangeNext = e => {
-    this.setState({ currentPage: this.state.currentPage + 1 });
+    this.setState({ currentPage: Number(e.target.id) });
     console.log(`Clicked ${this.state.currentPage}`);
   };
   handlePageChangePrev = e => {
-    this.setState({ currentPage: this.state.currentPage - 1 });
+    this.setState({ currentPage: Number(e.target.id) });
     console.log(`Clicked ${this.state.currentPage}`);
   };
 
   render() {
-    const { users } = this.state;
-    const { value } = this.state;
+    const { users, value, currentPage } = this.state;
+    // const { value } = this.state;
+    const indexOfLastUser = currentPage + value;
+    const indexOfFirstUser = indexOfLastUser - value;
+    const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
+
+    const pageNumbers = [];
+    for (let i = 0; i <= Math.ceil(users.length / value); i++) {
+      pageNumbers.push(i);
+    }
+    const renderPageNumbers = pageNumbers.map(number => {
+      return number;
+    });
     return (
       <div>
         <Nav />
@@ -78,6 +89,10 @@ class App extends Component {
           value={value}
           handlePageChangeNext={this.handlePageChangeNext}
           handlePageChangePrev={this.handlePageChangePrev}
+          number={this.number}
+          renderPageNumbers={this.renderPageNumbers}
+          indexOfFirstUser={this.indexOfFirstUser}
+          indexOfLastUser={this.indexOfLastUser}
         />
         <Fetch
           onSuccess={this.setUsers}

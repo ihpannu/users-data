@@ -55,12 +55,17 @@ export default class Pagination extends Component {
                 </select>
               </label>
             </li>
-
-            <li>of</li>
-            <li>{this.props.value}</li>
+            <li>{this.props.indexOfFirstUser}</li>
+            <li>of </li>
+            <li>{this.props.indexOfLastUser}</li>
             <li>
-              <a onClick={this.props.handlePageChangePrev}>
+              <a
+                key={this.props.number}
+                id={this.props.number}
+                onClick={this.props.handlePageChangePrev}
+              >
                 <i className="fas fa-angle-left" />
+                {this.props.number}
               </a>
             </li>
             <li>
