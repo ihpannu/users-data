@@ -89,10 +89,6 @@ class App extends Component {
           value={value}
           handlePageChangeNext={this.handlePageChangeNext}
           handlePageChangePrev={this.handlePageChangePrev}
-          number={this.number}
-          renderPageNumbers={this.renderPageNumbers}
-          indexOfFirstUser={this.indexOfFirstUser}
-          indexOfLastUser={this.indexOfLastUser}
         />
         <Fetch
           onSuccess={this.setUsers}
