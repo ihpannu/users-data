@@ -68,17 +68,18 @@ class App extends Component {
   render() {
     const { users, value, currentPage } = this.state;
     // const { value } = this.state;
-    const indexOfLastUser = currentPage + value;
-    const indexOfFirstUser = indexOfLastUser - value;
-    const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
+    
+    const indexOfLastUser = users.map(user => user.)
+    // const indexOfFirstUser = indexOfLastUser - value;
+    // const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
 
-    const pageNumbers = [];
-    for (let i = 0; i <= Math.ceil(users.length / value); i++) {
-      pageNumbers.push(i);
-    }
-    const renderPageNumbers = pageNumbers.map(number => {
-      return number;
-    });
+    // const pageNumbers = [];
+    // for (let i = 0; i <= Math.ceil(users.length / value); i++) {
+    //   pageNumbers.push(i);
+    // }
+    // const renderPageNumbers = pageNumbers.map(number => {
+    //   return number;
+    // });
     return (
       <div>
         <Nav />
